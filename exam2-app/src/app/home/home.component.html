@@ -1,0 +1,18 @@
+<button (click)='signOut()' type="button" name="button">Logout</button>
+
+<h1>Hi, {{currentUser.name}}!</h1>
+
+<button (click)='newQuestion()' type="button" name="button">Add a Question</button>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answers</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor='let question of questions'>
+    <td>{{question.content}}</td>
+    <td>{{question.answers.length}}</td>
+    <td><a [routerLink]="['/questions', question._id]">Show</a><a [routerLink]="['/answers', question._id]">Answer</a></td>
+  </tr>
+</table>

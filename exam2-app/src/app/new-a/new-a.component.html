@@ -1,0 +1,13 @@
+<button (click)='signOut()' type="button" name="button">Logout</button>
+<a [routerLink]="['/home']">Home</a>
+<a [routerLink]="['/questions', question._id]">Go Back to Question</a>
+
+<h1>{{question.content}}</h1>
+<h3>{{question.description}}</h3>
+<form (submit)='addAnswer(question._id)'>
+  <p class='error' *ngIf='!text.pristine && text.invalid'>Answer must be at least 5 characters</p>
+  Your Answer: <textarea [(ngModel)]='answer.text' #text='ngModel' name="text" rows="8" cols="80" minlength=5></textarea><br>
+  Supporting details for your answer (optional) <textarea [(ngModel)]='answer.details' #details='ngModel' name="details" rows="8" cols="80"></textarea>
+  <input type="submit" name="submit" value="Submit">
+  <button (click)='goHome()' type="button" name="button">Cancel</button>
+</form>

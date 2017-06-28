@@ -1,0 +1,14 @@
+<button (click)='goHome()' type="button" name="button">Home</button>
+
+<button (click)='signOut()' type="button" name="button">Logout</button>
+
+<h1>New Question</h1>
+
+<form (submit)='addQuestion()'>
+  <p class='error' *ngIf='!content.pristine && content.invalid'>Question must be at least 10 characters</p>
+  Question: <textarea name="content" [(ngModel)]='question.content' #content='ngModel' rows="8" cols="80" minlength=10></textarea><br>
+  Description (optional) <textarea name="description" [(ngModel)]='question.description' #description='ngModel' rows="8" cols="80"></textarea>
+  <input type="submit" name="submit" value="Submit">
+  <button (click)='goHome()' type="button" name="button">Cancel</button>
+
+</form>
